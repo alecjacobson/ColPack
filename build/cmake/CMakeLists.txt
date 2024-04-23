@@ -165,9 +165,8 @@ target_include_directories(ColPack_shared INTERFACE
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 
 if(ENABLE_OPENMP)
-    set_target_properties(ColPack_shared PROPERTIES COMPILE_FLAGS
-        ${OpenMP_CXX_FLAGS})
-    target_link_libraries(ColPack_shared PRIVATE ${OpenMP_CXX_FLAGS})
+    target_link_libraries(ColPack_static PUBLIC OpenMP::OpenMP_CXX)
+    target_link_libraries(ColPack_shared PUBLIC OpenMP::OpenMP_CXX)
 endif()
 
 install(FILES ${HEADERS} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ColPack_headers)
