@@ -10,5 +10,6 @@ Then
 
     mkdir build/cmake/build
     cd build/cmake/build
-    cmake .. -DCMAKE_INSTALL_PREFIX:PATH=../
+    cmake .. -DCMAKE_INSTALL_PREFIX:PATH=../ -DENABLE_OPENMP=ON -DCMAKE_PREFIX_PATH="/opt/homebrew/opt/libomp"
     make -j8
+    make install
